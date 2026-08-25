@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Base Ocho — Sitios web para tu negocio, hechos y mantenidos</title>
+<meta name="description" content="Hacemos tu página web y después la seguimos atendiendo, todos los meses. Estudio web en Concordia, Entre Ríos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=1">
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="/" class="logo">
+      <svg viewBox="0 0 64 96" class="logo-mark" aria-hidden="true">
+        <g fill="none" stroke="currentColor" stroke-width="13">
+          <rect x="6.5" y="6.5" width="51" height="41" rx="11"></rect>
+          <rect x="6.5" y="48.5" width="51" height="41" rx="11"></rect>
+        </g>
+      </svg>
+      <span>base ocho</span>
+    </a>
+    <nav class="main-nav">
+      <a href="/#hacemos">Qué hacemos</a>
+      <a href="/#planes">Cuánto sale</a>
+      <a href="/#como">Cómo trabajamos</a>
+      <a href="/#contacto" class="btn btn-primary btn-small">Escribinos</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <section class="hero">
+    <div class="blob blob-a"></div>
+    <div class="blob blob-b"></div>
+    <div class="blob blob-c"></div>
+    <div class="hero-inner">
+      <h1 data-reveal>Hacemos tu página web y después <span class="grad-text">la seguimos atendiendo</span>. Todos los meses.</h1>
+      <p data-reveal class="hero-lead">Diseñamos el sitio, lo publicamos y después nos quedamos: cuando cambiás un precio, sumás un producto o querés una promo, nos escribís y lo hacemos. Todo entra en una cuota mensual.</p>
+      <div data-reveal class="hero-ctas">
+        <a href="#contacto" class="btn btn-primary btn-large">Contanos qué necesitás</a>
+        <a href="#planes" class="btn btn-ghost btn-large">o mirá los precios primero</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee">
+    <div class="marquee-track">
+      <div class="marquee-group">
+        <span>panaderías</span><span class="dot">•</span>
+        <span>estudios contables</span><span class="dot">•</span>
+        <span>consultorios</span><span class="dot">•</span>
+        <span>ferreterías</span><span class="dot">•</span>
+        <span>gimnasios</span><span class="dot">•</span>
+        <span>viveros</span><span class="dot">•</span>
+        <span>tiendas de ropa</span><span class="dot">•</span>
+        <span>electrodomésticos</span><span class="dot">•</span>
+      </div>
+      <div class="marquee-group" aria-hidden="true">
+        <span>panaderías</span><span class="dot">•</span>
+        <span>estudios contables</span><span class="dot">•</span>
+        <span>consultorios</span><span class="dot">•</span>
+        <span>ferreterías</span><span class="dot">•</span>
+        <span>gimnasios</span><span class="dot">•</span>
+        <span>viveros</span><span class="dot">•</span>
+        <span>tiendas de ropa</span><span class="dot">•</span>
+        <span>electrodomésticos</span><span class="dot">•</span>
+      </div>
+    </div>
+  </div>
+
+  <section id="hacemos" class="section">
+    <h2 data-reveal class="section-title">Qué hacemos</h2>
+    <div class="grid grid-3">
+      <div data-reveal class="card">
+        <h3>El sitio, hecho para lo que vendés</h3>
+        <p>No usamos plantillas. Vemos qué le tenés que explicar a tu cliente, en qué orden, y armamos la página alrededor de eso. Si tenés fotos buenas las usamos; si no, te decimos cuáles sacar.</p>
+      </div>
+      <div data-reveal class="card">
+        <h3>Los textos también</h3>
+        <p>La parte que más se traba. Te hacemos una entrevista de media hora, escribimos todo y vos corregís lo que no suena a vos. Nadie escribe su propia página bien.</p>
+      </div>
+      <div data-reveal class="card">
+        <h3>Los cambios de todos los meses</h3>
+        <p>Subiste los precios, cerrás por vacaciones, agregaste un servicio. Nos mandás un WhatsApp y queda hecho el mismo día. Sin presupuesto y sin esperar tres semanas.</p>
+      </div>
+      <div data-reveal class="card">
+        <h3>Que te encuentren en Google</h3>
+        <p>Ficha de Google, mapas, las búsquedas de tu barrio y de tu rubro. Es trabajo lento y aburrido, y por eso conviene que lo hagamos nosotros.</p>
+      </div>
+      <div data-reveal class="card">
+        <h3>Vender online, si hace falta</h3>
+        <p>Catálogo, carrito y cobro con tarjeta o transferencia. Lo dejamos probado con una compra real antes de que salga.</p>
+      </div>
+      <div data-reveal class="card">
+        <h3>Un mail por mes</h3>
+        <p>Cuánta gente entró, qué miraron, cuántos te escribieron. En castellano, sin tableros que nadie abre.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="planes" class="section">
+    <h2 data-reveal class="section-title">Cuánto sale</h2>
+    <p data-reveal class="section-lead">Precios en dólares, sin IVA. Hay un pago inicial de US$120 por armar el sitio, y después la cuota. Si pagás el año adelantado no cobramos el inicial y la cuota baja un 20%.</p>
+
+    <div data-reveal class="billing-toggle" role="group" aria-label="Forma de pago">
+      <button type="button" class="toggle-btn is-active" id="btnMensual">Mes a mes</button>
+      <button type="button" class="toggle-btn" id="btnAnual">Año adelantado</button>
+    </div>
+
+    <div class="grid grid-3 pricing-grid">
+      <div data-reveal class="plan-card">
+        <h3>Arranque</h3>
+        <p class="plan-desc">Para el que hoy manda un PDF por WhatsApp y necesita algo a dónde mandar a la gente.</p>
+        <div class="plan-price"><span class="price" data-monthly="US$19" data-annual="US$15">US$19</span><span class="price-period">por mes</span></div>
+        <div class="plan-note" data-monthly="más US$120 una vez, al empezar" data-annual="US$180 el año, sin pago inicial">más US$120 una vez, al empezar</div>
+        <a href="#contacto" class="btn btn-outline">Lo quiero</a>
+        <ul class="plan-features">
+          <li>Una sola página, bien hecha</li>
+          <li>Dominio .com y hosting incluidos</li>
+          <li>Formulario y botón de WhatsApp</li>
+          <li>Un pedido de cambios por mes</li>
+          <li>Te contestamos por mail en 48 h</li>
+        </ul>
+      </div>
+
+      <div data-reveal class="plan-card plan-featured">
+        <h3>Impulso</h3>
+        <p class="plan-desc">Para un negocio que ya funciona y quiere que la página traiga clientes, no que solo exista.</p>
+        <div class="plan-price"><span class="price grad-text" data-monthly="US$39" data-annual="US$31">US$39</span><span class="price-period">por mes</span></div>
+        <div class="plan-note" data-monthly="más US$120 una vez, al empezar" data-annual="US$372 el año, sin pago inicial">más US$120 una vez, al empezar</div>
+        <a href="#contacto" class="btn btn-primary">Lo quiero</a>
+        <ul class="plan-features">
+          <li>Hasta seis páginas, con blog si querés</li>
+          <li>Los textos los escribimos nosotros</li>
+          <li>Ficha de Google y búsquedas de tu zona</li>
+          <li>Cuatro pedidos de cambios por mes</li>
+          <li>WhatsApp directo, respuesta en el día</li>
+          <li>El mail mensual con los números</li>
+        </ul>
+      </div>
+
+      <div data-reveal class="plan-card">
+        <h3>Comercio</h3>
+        <p class="plan-desc">Para vender online sin pasarte las tardes peleando con el panel de la tienda.</p>
+        <div class="plan-price"><span class="price" data-monthly="US$69" data-annual="US$55">US$69</span><span class="price-period">por mes</span></div>
+        <div class="plan-note" data-monthly="más US$120 una vez, al empezar" data-annual="US$660 el año, sin pago inicial">más US$120 una vez, al empezar</div>
+        <a href="#contacto" class="btn btn-outline">Lo quiero</a>
+        <ul class="plan-features">
+          <li>Todo lo de Impulso</li>
+          <li>Tienda de hasta 200 productos</li>
+          <li>Cobro con tarjeta y transferencia</li>
+          <li>Los cambios que hagan falta, sin tope</li>
+          <li>Te atendemos primero: 4 h hábiles</li>
+          <li>Un envío de email a tus clientes por mes</li>
+        </ul>
+      </div>
+    </div>
+    <p data-reveal class="plans-footnote">El dominio y el sitio quedan a tu nombre. Si algún día querés irte, te llevás todo y te ayudamos a mudarlo. No hay permanencia ni multa.</p>
+  </section>
+
+  <section id="como" class="section section-alt">
+    <h2 data-reveal class="section-title">Cómo trabajamos</h2>
+    <div class="grid grid-4">
+      <div data-reveal class="step">
+        <div class="step-num">01</div>
+        <h3>Hablamos veinte minutos</h3>
+        <p>Por teléfono o café, como te quede. Nos contás qué vendés y a quién. Salimos con un plan y una fecha.</p>
+      </div>
+      <div data-reveal class="step">
+        <div class="step-num">02</div>
+        <h3>Te mostramos el sitio en cinco días</h3>
+        <p>Terminado, con tus textos y tus fotos. Nada de bocetos grises. Dos rondas de cambios entran en el precio.</p>
+      </div>
+      <div data-reveal class="step">
+        <div class="step-num">03</div>
+        <h3>Lo publicamos nosotros</h3>
+        <p>Dominio, casillas de mail, Google. Vos no tenés que crear ninguna cuenta ni entender ninguna configuración.</p>
+      </div>
+      <div data-reveal class="step">
+        <div class="step-num">04</div>
+        <h3>Y seguimos ahí</h3>
+        <p>Es la parte que casi nadie te ofrece. Cada mes el sitio se actualiza, se respalda y sigue andando rápido.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" class="section contact-section">
+    <div class="blob blob-b contact-blob"></div>
+    <div data-reveal class="contact-inner">
+      <h2>Escribinos y te decimos qué haríamos</h2>
+      <p>Contestamos nosotros, no un bot. Te mandamos una propuesta concreta con el plan que te conviene y el precio final. Si no somos lo que buscás, también te lo decimos.</p>
+      <form class="contact-form" id="contactForm">
+        <input type="text" name="nombre" placeholder="Cómo te llamás" required>
+        <input type="text" name="contacto" placeholder="Mail o WhatsApp" required>
+        <textarea name="mensaje" rows="4" placeholder="Contanos un poco qué hacés y qué necesitás" required></textarea>
+        <button type="submit" class="btn btn-primary">Mandar</button>
+      </form>
+      <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+      <div class="contact-links">
+        <a href="mailto:hola@baseocho.com">hola@baseocho.com</a>
+        <a href="tel:+5493456268638">3456 26-8638</a>
+      </div>
+      <p class="contact-hours">Lunes a viernes, 9 a 18.</p>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <svg viewBox="0 0 64 96" class="logo-mark" aria-hidden="true">
+            <g fill="none" stroke="currentColor" stroke-width="13">
+              <rect x="6.5" y="6.5" width="51" height="41" rx="11"></rect>
+              <rect x="6.5" y="48.5" width="51" height="41" rx="11"></rect>
+            </g>
+          </svg>
+          <span>base ocho</span>
+        </div>
+        <p>Estudio web en Concordia, Entre Ríos. Hacemos y mantenemos páginas para negocios que prefieren dedicarle el tiempo a lo suyo.</p>
+        <div class="social-links">
+          <a href="/#contacto" aria-label="WhatsApp">WA</a>
+          <a href="/#contacto" aria-label="Instagram">IG</a>
+          <a href="/#contacto" aria-label="LinkedIn">In</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-heading">Servicios</div>
+        <a href="/#hacemos">Diseño de sitios</a>
+        <a href="/#hacemos">Redacción de textos</a>
+        <a href="/#hacemos">Tiendas online</a>
+        <a href="/#hacemos">Google y SEO local</a>
+        <a href="/#hacemos">Mantenimiento mensual</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-heading">Planes</div>
+        <a href="/#planes">Arranque · US$19</a>
+        <a href="/#planes">Impulso · US$39</a>
+        <a href="/#planes">Comercio · US$69</a>
+        <a href="/#como">Cómo trabajamos</a>
+        <a href="/#contacto">Pedir presupuesto</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-heading">Contacto</div>
+        <a href="mailto:hola@baseocho.com">hola@baseocho.com</a>
+        <a href="tel:+5493456268638">3456 26-8638</a>
+        <span class="muted">Lunes a viernes, 9 a 18</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Base Ocho. Todos los derechos reservados.</span>
+      <div class="footer-bottom-links">
+        <a href="/terminos">Términos</a>
+        <a href="/privacidad">Privacidad</a>
+        <a href="/trabaja-con-nosotros">Trabajá con nosotros</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js?v=1"></script>
+</body>
+</html>

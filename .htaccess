@@ -1,0 +1,17 @@
+RewriteEngine On
+
+# If someone hits /index.html directly, send them to the clean root URL.
+RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
+RewriteRule ^index\.html$ / [R=301,L]
+
+# If someone hits /algo.html directly, send them to /algo (no extension).
+RewriteCond %{THE_REQUEST} \s/+(.+)\.html[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+# Serve index.html for the root URL.
+DirectoryIndex index.html
+
+# Internally map /algo to algo.html without changing the URL shown.
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^([^.]+)$ $1.html [L]
