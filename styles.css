@@ -96,8 +96,10 @@ img, svg { display: block; max-width: 100%; }
   text-decoration: none;
   color: var(--navy);
 }
-.logo-mark { height: 28px; width: auto; color: var(--navy); }
-.logo span { font-size: 20px; font-weight: 600; letter-spacing: -0.03em; color: var(--navy); }
+.logo-mark { height: 28px; width: auto; color: var(--navy); flex-shrink: 0; }
+.logo-text { display: flex; flex-direction: column; line-height: 1.2; }
+.logo-name { font-size: 20px; font-weight: 600; letter-spacing: -0.03em; color: var(--navy); }
+.logo-tagline { font-size: 11px; font-weight: 500; letter-spacing: 0.03em; color: var(--text-muted-2); }
 
 .main-nav { display: flex; align-items: center; gap: 30px; font-size: 15px; }
 .main-nav a:not(.btn) { color: var(--text-muted-1); text-decoration: none; transition: color .25s; }
