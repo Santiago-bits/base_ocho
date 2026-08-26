@@ -158,6 +158,24 @@
     try { localStorage.setItem(COOLDOWN_KEY, String(Date.now())); } catch (e) {}
   }
 
+  function showCooldown(msLeft) {
+    var minutesLeft = Math.ceil(msLeft / 60000);
+    form.hidden = true;
+    status.textContent = '¡Gracias! Te vamos a contestar a la brevedad. Vas a poder mandar otro mensaje en ' + minutesLeft + ' minuto' + (minutesLeft === 1 ? '' : 's') + '.';
+    status.classList.add('is-success');
+    setTimeout(function () {
+      form.hidden = false;
+      status.textContent = '';
+      status.classList.remove('is-success');
+    }, msLeft);
+  }
+
+  // Si ya escribió hace poco (aunque haya recargado la página), seguimos mostrando la espera.
+  (function checkCooldownOnLoad() {
+    var elapsed = getMsSinceLastSubmit();
+    if (elapsed < COOLDOWN_MS) showCooldown(COOLDOWN_MS - elapsed);
+  })();
+
   form.addEventListener('submit', function (e) {
     e.preventDefault();
 
@@ -186,9 +204,7 @@
       .then(function (result) {
         if (result.success) {
           markSubmitted();
-          status.textContent = '¡Gracias! Te vamos a contestar a la brevedad.';
-          status.classList.add('is-success');
-          form.hidden = true;
+          showCooldown(COOLDOWN_MS);
         } else {
           status.textContent = 'Uy, no se pudo enviar. Escribinos directo a holabaseocho@gmail.com.';
         }

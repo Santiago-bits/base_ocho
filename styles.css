@@ -312,6 +312,7 @@ img, svg { display: block; max-width: 100%; }
 }
 .contact-inner > p { font-size: 18px; line-height: 1.65; color: var(--text-muted-1); margin: 0 0 36px; text-wrap: pretty; }
 
+.contact-form[hidden] { display: none; }
 .contact-form { display: grid; gap: 12px; text-align: left; }
 .contact-form input, .contact-form textarea {
   background: var(--panel);
