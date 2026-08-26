@@ -1,3 +1,11 @@
+// Clean up tracking query strings (?i=1, etc.) from the address bar without reloading.
+(function () {
+  if (!window.location.search) return;
+  if (!(window.history && window.history.replaceState)) return;
+  var cleanUrl = window.location.pathname + window.location.hash;
+  window.history.replaceState(null, '', cleanUrl);
+})();
+
 // Reveal-on-scroll for elements marked [data-reveal]
 (function () {
   var nodes = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
@@ -33,6 +41,25 @@
   });
 })();
 
+// Plans toggle — swap between "Páginas web" and "Sistemas" card groups.
+(function () {
+  var toggleBtns = Array.prototype.slice.call(document.querySelectorAll('.plan-toggle-btn'));
+  var groups = Array.prototype.slice.call(document.querySelectorAll('.plan-group'));
+  if (!toggleBtns.length || !groups.length) return;
+
+  toggleBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var target = btn.getAttribute('data-target');
+      toggleBtns.forEach(function (b) {
+        var active = b === btn;
+        b.classList.toggle('is-active', active);
+        b.setAttribute('aria-pressed', active ? 'true' : 'false');
+      });
+      groups.forEach(function (g) { g.hidden = g.getAttribute('data-group') !== target; });
+    });
+  });
+})();
+
 // Contact form wizard — one question per step, with a progress bar.
 (function () {
   var form = document.getElementById('contactForm');
@@ -41,7 +68,31 @@
   var steps = Array.prototype.slice.call(form.querySelectorAll('.wizard-step'));
   var segments = Array.prototype.slice.call(form.querySelectorAll('.wizard-progress .segment'));
   var stepNumEl = document.getElementById('wizardStepNum');
+  var planInput = document.getElementById('planElegido');
+  var planBanner = document.getElementById('wizardPlanBanner');
+  var planNameEl = document.getElementById('wizardPlanName');
+  var planResetBtn = document.getElementById('wizardPlanReset');
   var current = 0;
+
+  function selectPlan(planName) {
+    if (planInput) planInput.value = planName;
+    if (planNameEl) planNameEl.textContent = planName;
+    if (planBanner) planBanner.hidden = false;
+    current = 1; // skip "¿qué necesitás?" — ya lo dijo al elegir el plan
+    render();
+  }
+
+  function clearPlan() {
+    if (planInput) planInput.value = '';
+    if (planBanner) planBanner.hidden = true;
+    current = 0;
+    render();
+  }
+
+  document.querySelectorAll('[data-plan]').forEach(function (link) {
+    link.addEventListener('click', function () { selectPlan(link.getAttribute('data-plan')); });
+  });
+  if (planResetBtn) planResetBtn.addEventListener('click', clearPlan);
 
   function isStepValid(step) {
     var required = Array.prototype.slice.call(step.querySelectorAll('[required]'));
@@ -91,8 +142,31 @@
   var submitBtn = form.querySelector('button[type="submit"]');
   var defaultLabel = submitBtn ? submitBtn.textContent : '';
 
+  var COOLDOWN_MS = 5 * 60 * 1000;
+  var COOLDOWN_KEY = 'b8_lastSubmit';
+
+  function getMsSinceLastSubmit() {
+    try {
+      var last = Number(localStorage.getItem(COOLDOWN_KEY));
+      return last ? Date.now() - last : Infinity;
+    } catch (e) {
+      return Infinity; // sin localStorage no podemos frenar el spam, dejamos pasar
+    }
+  }
+
+  function markSubmitted() {
+    try { localStorage.setItem(COOLDOWN_KEY, String(Date.now())); } catch (e) {}
+  }
+
   form.addEventListener('submit', function (e) {
     e.preventDefault();
+
+    var elapsed = getMsSinceLastSubmit();
+    if (elapsed < COOLDOWN_MS) {
+      var minutesLeft = Math.ceil((COOLDOWN_MS - elapsed) / 60000);
+      status.textContent = 'Ya nos escribiste hace poco. Probá de nuevo en ' + minutesLeft + ' minuto' + (minutesLeft === 1 ? '' : 's') + ', o escribinos directo a holabaseocho@gmail.com.';
+      return;
+    }
 
     var accessKey = form.access_key ? form.access_key.value : '';
     if (!accessKey || accessKey.indexOf('PASTE_') === 0) {
@@ -111,6 +185,7 @@
       .then(function (res) { return res.json(); })
       .then(function (result) {
         if (result.success) {
+          markSubmitted();
           status.textContent = '¡Gracias! Te vamos a contestar a la brevedad.';
           status.classList.add('is-success');
           form.hidden = true;

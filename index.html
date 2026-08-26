@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Base Ocho — Sitios web para tu negocio, hechos y mantenidos</title>
-<meta name="description" content="Hacemos tu página web y después la seguimos atendiendo, todos los meses. Estudio web en Concordia, Entre Ríos.">
+<title>Base Ocho — Sitios web y sistemas para tu negocio, hechos y mantenidos</title>
+<meta name="description" content="Hacemos tu página web o el sistema que tu negocio necesite, y después los seguimos atendiendo, todos los meses. Estudio en Concordia, Entre Ríos.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=8">
+<link rel="stylesheet" href="styles.css?v=12">
 </head>
 <body>
 
@@ -38,8 +38,8 @@
     <div class="blob blob-b"></div>
     <div class="blob blob-c"></div>
     <div class="hero-inner">
-      <h1 data-reveal>Hacemos tu página web y después <span class="grad-text">la seguimos atendiendo</span>. Todos los meses.</h1>
-      <p data-reveal class="hero-lead">Diseñamos el sitio, lo publicamos y después nos quedamos: cuando cambiás un precio, sumás un producto o querés una promo, nos escribís y lo hacemos. Todo entra en una cuota mensual.</p>
+      <h1 data-reveal>Hacemos tu página web o tu sistema y después <span class="grad-text">los seguimos atendiendo</span>. Todos los meses.</h1>
+      <p data-reveal class="hero-lead">Diseñamos tu sitio o tu sistema, lo publicamos y después nos quedamos: cuando cambiás un precio, sumás un producto o necesitás un ajuste, nos escribís y lo hacemos. Todo entra en una cuota mensual.</p>
       <div data-reveal class="hero-ctas">
         <a href="#contacto" class="btn btn-primary btn-large">Contanos qué necesitás</a>
         <a href="#planes" class="btn btn-ghost btn-large">o mirá los planes primero</a>
@@ -74,6 +74,7 @@
 
   <section id="hacemos" class="section">
     <h2 data-reveal class="section-title">Qué hacemos</h2>
+    <p data-reveal class="section-lead">Sitios web para mostrarte y venderte, sistemas a medida para ordenar lo de todos los días. Lo armamos y nos quedamos para mantenerlo.</p>
     <div class="grid grid-3">
       <div data-reveal class="card">
         <h3>El sitio, hecho para lo que vendés</h3>
@@ -104,51 +105,107 @@
 
   <section id="planes" class="section">
     <h2 data-reveal class="section-title">Nuestros planes</h2>
-    <p data-reveal class="section-lead">Tres formas de trabajar juntos, según cuánto necesite tu negocio hoy. Charlamos veinte minutos y te armamos una propuesta a medida, sin vueltas.</p>
+    <p data-reveal class="section-lead">Dos formas de trabajar juntos, según lo que necesite tu negocio hoy. Charlamos veinte minutos y te armamos una propuesta a medida, sin vueltas.</p>
 
-    <div class="grid grid-3 pricing-grid">
-      <div data-reveal class="plan-card">
-        <h3>Arranque</h3>
-        <p class="plan-desc">Para el que hoy manda un PDF por WhatsApp y necesita algo a dónde mandar a la gente.</p>
-        <a href="#contacto" class="btn btn-outline">Pedir esta propuesta</a>
-        <ul class="plan-features">
-          <li>Una sola página, bien hecha</li>
-          <li>Dominio .com y hosting incluidos</li>
-          <li>Formulario y botón de WhatsApp</li>
-          <li>Un pedido de cambios por mes</li>
-          <li>Te contestamos por mail en 48 h</li>
-        </ul>
-      </div>
-
-      <div data-reveal class="plan-card plan-featured">
-        <h3>Impulso</h3>
-        <p class="plan-desc">Para un negocio que ya funciona y quiere que la página traiga clientes, no que solo exista.</p>
-        <a href="#contacto" class="btn btn-primary">Pedir esta propuesta</a>
-        <ul class="plan-features">
-          <li>Hasta seis páginas, con blog si querés</li>
-          <li>Los textos los escribimos nosotros</li>
-          <li>Ficha de Google y búsquedas de tu zona</li>
-          <li>Cuatro pedidos de cambios por mes</li>
-          <li>WhatsApp directo, respuesta en el día</li>
-          <li>El mail mensual con los números</li>
-        </ul>
-      </div>
-
-      <div data-reveal class="plan-card">
-        <h3>Comercio</h3>
-        <p class="plan-desc">Para vender online sin pasarte las tardes peleando con el panel de la tienda.</p>
-        <a href="#contacto" class="btn btn-outline">Pedir esta propuesta</a>
-        <ul class="plan-features">
-          <li>Todo lo de Impulso</li>
-          <li>Tienda de hasta 200 productos</li>
-          <li>Cobro con tarjeta y transferencia</li>
-          <li>Los cambios que hagan falta, sin tope</li>
-          <li>Te atendemos primero: 4 h hábiles</li>
-          <li>Un envío de email a tus clientes por mes</li>
-        </ul>
-      </div>
+    <div data-reveal class="plan-toggle" role="group" aria-label="Tipo de proyecto">
+      <button type="button" class="plan-toggle-btn is-active" data-target="web" aria-pressed="true">Páginas web</button>
+      <button type="button" class="plan-toggle-btn" data-target="sistemas" aria-pressed="false">Sistemas</button>
     </div>
-    <p data-reveal class="plans-footnote">El dominio y el sitio quedan a tu nombre. Si algún día querés irte, te llevás todo y te ayudamos a mudarlo. No hay permanencia ni multa.</p>
+
+    <div class="plan-group" data-group="web">
+      <p data-reveal class="plan-group-lead">Para mostrarte, generar confianza y vender online.</p>
+      <div class="grid grid-3 pricing-grid">
+        <div data-reveal class="plan-card">
+          <h3>Arranque</h3>
+          <p class="plan-desc">Para el que hoy manda un PDF por WhatsApp y necesita algo a dónde mandar a la gente.</p>
+          <a href="#contacto" class="btn btn-outline" data-plan="Arranque">Pedir esta propuesta</a>
+          <ul class="plan-features">
+            <li>Una sola página, bien hecha</li>
+            <li>Dominio y hosting incluidos</li>
+            <li>Formulario y botón de WhatsApp</li>
+            <li>Un pedido de cambios por mes</li>
+            <li>Te contestamos por mail en 48 h</li>
+          </ul>
+        </div>
+
+        <div data-reveal class="plan-card plan-featured">
+          <h3>Impulso</h3>
+          <p class="plan-desc">Para un negocio que ya funciona y quiere que la página traiga clientes, no que solo exista.</p>
+          <a href="#contacto" class="btn btn-primary" data-plan="Impulso">Pedir esta propuesta</a>
+          <ul class="plan-features">
+            <li>Hasta seis páginas, con blog si querés</li>
+            <li>Los textos los escribimos nosotros</li>
+            <li>Ficha de Google y búsquedas de tu zona</li>
+            <li>Cuatro pedidos de cambios por mes</li>
+            <li>WhatsApp directo, respuesta en el día</li>
+            <li>El mail mensual con los números</li>
+          </ul>
+        </div>
+
+        <div data-reveal class="plan-card">
+          <h3>Comercio</h3>
+          <p class="plan-desc">Para vender online sin pasarte las tardes peleando con el panel de la tienda.</p>
+          <a href="#contacto" class="btn btn-outline" data-plan="Comercio">Pedir esta propuesta</a>
+          <ul class="plan-features">
+            <li>Todo lo de Impulso</li>
+            <li>Tienda de hasta 200 productos</li>
+            <li>Cobro con tarjeta y transferencia</li>
+            <li>Los cambios que hagan falta, sin tope</li>
+            <li>Te atendemos primero: 4 h hábiles</li>
+            <li>Un envío de email a tus clientes por mes</li>
+          </ul>
+        </div>
+      </div>
+      <p data-reveal class="plans-footnote">El dominio y el sitio quedan a tu nombre. Si algún día querés irte, te llevás todo y te ayudamos a mudarlo. No hay permanencia ni multa.</p>
+    </div>
+
+    <div class="plan-group" data-group="sistemas" hidden>
+      <p data-reveal class="plan-group-lead">Para ordenar lo de adentro: turnos, stock, pedidos y todo lo que hoy resolvés a mano.</p>
+      <div class="grid grid-3 pricing-grid">
+        <div data-reveal class="plan-card">
+          <h3>Agenda</h3>
+          <p class="plan-desc">Para el que vive a las corridas con la agenda en un cuaderno o en WhatsApp y se le pisan los turnos.</p>
+          <a href="#contacto" class="btn btn-outline" data-plan="Agenda">Pedir esta propuesta</a>
+          <ul class="plan-features">
+            <li>Calendario de turnos online, las 24 horas</li>
+            <li>Recordatorios automáticos por WhatsApp o mail</li>
+            <li>Vos manejás horarios, feriados y bloqueos</li>
+            <li>Alojamiento del sistema incluido</li>
+            <li>Un pedido de cambios por mes</li>
+            <li>Te contestamos por mail en 48 h</li>
+          </ul>
+        </div>
+
+        <div data-reveal class="plan-card plan-featured">
+          <h3>Gestión</h3>
+          <p class="plan-desc">Para el que ya tiene local o depósito y necesita saber qué tiene, qué vendió y qué falta pedir (no es tienda online: para eso está Comercio).</p>
+          <a href="#contacto" class="btn btn-primary" data-plan="Gestión">Pedir esta propuesta</a>
+          <ul class="plan-features">
+            <li>Catálogo de productos con stock en tiempo real</li>
+            <li>Alertas cuando algo se está por terminar</li>
+            <li>Reportes simples de ventas por día o por mes</li>
+            <li>Alojamiento del sistema incluido</li>
+            <li>Cuatro pedidos de cambios por mes</li>
+            <li>WhatsApp directo, respuesta en el día</li>
+          </ul>
+        </div>
+
+        <div data-reveal class="plan-card">
+          <h3>A medida</h3>
+          <p class="plan-desc">Para procesos más particulares: turnos con varios profesionales, pedidos con estados, lo que hoy resolvés cruzando planillas.</p>
+          <a href="#contacto" class="btn btn-outline" data-plan="Sistema a medida">Pedir esta propuesta</a>
+          <ul class="plan-features">
+            <li>Relevamos tu proceso real antes de tocar una línea de código</li>
+            <li>Usuarios y permisos para vos y tu equipo</li>
+            <li>Se conecta con tu web si ya tenés una</li>
+            <li>Alojamiento del sistema incluido</li>
+            <li>Los cambios que hagan falta, sin tope</li>
+            <li>Te atendemos primero: 4 h hábiles</li>
+          </ul>
+        </div>
+      </div>
+      <p data-reveal class="plans-footnote">El sistema y tu base de datos quedan a tu nombre. Si el día de mañana querés cambiar de proveedor, te ayudamos a exportar todo.</p>
+    </div>
   </section>
 
   <section id="como" class="section section-alt">
@@ -161,8 +218,8 @@
       </div>
       <div data-reveal class="step">
         <div class="step-num">02</div>
-        <h3>Te mostramos el sitio en cinco días</h3>
-        <p>Terminado, con tus textos y tus fotos. Nada de bocetos grises. Dos rondas de cambios entran en el precio.</p>
+        <h3>Te mostramos algo andando, rápido</h3>
+        <p>Un sitio, terminado en cinco días con tus textos y tus fotos. Un sistema, apenas relevamos cómo trabajás hoy. Nada de bocetos grises: dos rondas de cambios entran en el precio.</p>
       </div>
       <div data-reveal class="step">
         <div class="step-num">03</div>
@@ -186,6 +243,12 @@
         <input type="hidden" name="access_key" value="8f75791f-07d0-4b7a-9c3c-5be227e70bc4">
         <input type="hidden" name="subject" value="Nuevo mensaje desde el sitio de Base Ocho">
         <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <input type="hidden" name="plan_elegido" id="planElegido" value="">
+
+        <p class="wizard-plan-banner" id="wizardPlanBanner" hidden>
+          Pedís una propuesta para <strong id="wizardPlanName"></strong>.
+          <button type="button" id="wizardPlanReset" class="link-reset">No es este plan</button>
+        </p>
 
         <div class="wizard-progress" aria-hidden="true">
           <span class="segment is-filled"></span>
@@ -212,6 +275,10 @@
               <span>Vender online</span>
             </label>
             <label class="option-card">
+              <input type="radio" name="necesita" value="Un sistema (turnos, stock o gestión)">
+              <span>Un sistema (turnos, stock o gestión)</span>
+            </label>
+            <label class="option-card">
               <input type="radio" name="necesita" value="No estoy seguro, quiero que me asesoren">
               <span>No estoy seguro, quiero que me asesoren</span>
             </label>
@@ -223,14 +290,14 @@
         </div>
 
         <div class="wizard-step" data-step="2">
-          <h3 class="wizard-question">¿Ya tenés un sitio web?</h3>
+          <h3 class="wizard-question">¿Ya tenés algo armado (sitio o sistema)?</h3>
           <div class="option-cards">
             <label class="option-card">
-              <input type="radio" name="tiene_sitio" value="Sí" required>
+              <input type="radio" name="tiene_algo" value="Sí" required>
               <span>Sí</span>
             </label>
             <label class="option-card">
-              <input type="radio" name="tiene_sitio" value="No">
+              <input type="radio" name="tiene_algo" value="No">
               <span>No</span>
             </label>
           </div>
@@ -289,7 +356,7 @@
           </svg>
           <span class="logo-text"><span class="logo-name">base ocho</span><span class="logo-tagline">Diseño y desarrollo</span></span>
         </div>
-        <p>Estudio web en Concordia, Entre Ríos. Hacemos y mantenemos páginas para negocios que prefieren dedicarle el tiempo a lo suyo.</p>
+        <p>Estudio en Concordia, Entre Ríos. Hacemos y mantenemos sitios web y sistemas para negocios que prefieren dedicarle el tiempo a lo suyo.</p>
         <div class="social-links">
           <a href="/#contacto" aria-label="WhatsApp">WA</a>
           <a href="/#contacto" aria-label="Instagram">IG</a>
@@ -301,6 +368,7 @@
         <a href="/#hacemos">Diseño de sitios</a>
         <a href="/#hacemos">Redacción de textos</a>
         <a href="/#hacemos">Tiendas online</a>
+        <a href="/#planes">Sistemas a medida</a>
         <a href="/#hacemos">Google y SEO local</a>
         <a href="/#hacemos">Mantenimiento mensual</a>
       </div>
@@ -329,6 +397,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=4"></script>
+  <script src="script.js?v=8"></script>
 </body>
 </html>

@@ -213,6 +213,39 @@ img, svg { display: block; max-width: 100%; }
 .card p { font-size: 16px; line-height: 1.65; color: var(--text-muted-1); text-wrap: pretty; }
 
 /* Pricing */
+#planes { text-align: center; }
+.plan-toggle {
+  display: inline-flex;
+  gap: 4px;
+  margin: 0 auto 36px;
+  padding: 4px;
+  border-radius: 999px;
+  background: var(--panel);
+  border: 1px solid var(--border-2);
+}
+.plan-toggle-btn {
+  padding: 10px 22px;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-muted-2);
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s, color .2s;
+}
+.plan-toggle-btn.is-active { background: var(--navy); color: #FFFFFF; }
+.plan-toggle-btn:not(.is-active):hover { background: var(--panel-hover); color: var(--navy); }
+
+.plan-group-lead {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--navy-2);
+  margin: 0 0 24px;
+  text-align: center;
+}
+
 .pricing-grid { align-items: stretch; }
 .plan-card {
   background: var(--panel);
@@ -296,6 +329,33 @@ img, svg { display: block; max-width: 100%; }
 .contact-form button { padding: 15px; font-size: 16px; }
 
 /* Wizard */
+.wizard-plan-banner[hidden] { display: none; }
+.wizard-plan-banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 16px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: var(--panel);
+  border: 1px solid var(--border-2);
+  font-size: 14px;
+  color: var(--text-muted-3);
+}
+.wizard-plan-banner strong { color: var(--navy); }
+.link-reset {
+  margin-left: auto;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--text-muted-2);
+  font-size: 13px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.link-reset:hover { color: var(--navy); }
+
 .wizard-progress { display: flex; gap: 6px; margin-bottom: 10px; }
 .wizard-progress .segment { flex: 1; height: 4px; border-radius: 999px; background: var(--border-2); transition: background .3s; }
 .wizard-progress .segment.is-filled { background: var(--navy); }

@@ -1,5 +1,11 @@
 RewriteEngine On
 
+# Force HTTPS (InfinityFree sits behind a proxy, so the checks below avoid redirect loops).
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:CF-Visitor} !{"scheme":"https"}
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
 # If someone hits /index.html directly, send them to the clean root URL.
 RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
 RewriteRule ^index\.html$ / [R=301,L]
