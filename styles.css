@@ -183,7 +183,7 @@ img, svg { display: block; max-width: 100%; }
   line-height: 1.08;
   letter-spacing: -0.03em;
   font-weight: 500;
-  margin: 0 0 48px;
+  margin: 0 auto 48px;
   text-align: center;
 }
 .section-lead {
@@ -213,34 +213,6 @@ img, svg { display: block; max-width: 100%; }
 .card p { font-size: 16px; line-height: 1.65; color: var(--text-muted-1); text-wrap: pretty; }
 
 /* Pricing */
-.billing-toggle {
-  display: flex;
-  gap: 4px;
-  border: 1px solid var(--border-2);
-  background: var(--panel);
-  border-radius: 999px;
-  padding: 4px;
-  width: fit-content;
-  margin: 0 auto 44px;
-}
-.toggle-btn {
-  font-size: 15px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 999px;
-  cursor: pointer;
-  font-family: inherit;
-  font-weight: 500;
-  background: transparent;
-  color: var(--text-muted-1);
-  transition: background .25s, color .25s;
-}
-.toggle-btn.is-active {
-  background: linear-gradient(135deg, var(--navy), var(--navy-2));
-  color: #FFFFFF;
-  font-weight: 600;
-}
-
 .pricing-grid { align-items: stretch; }
 .plan-card {
   background: var(--panel);
@@ -255,10 +227,6 @@ img, svg { display: block; max-width: 100%; }
 .plan-card:hover { transform: translateY(-6px); border-color: var(--navy); }
 .plan-card h3 { font-size: 19px; font-weight: 600; margin: 0 0 6px; color: var(--navy); }
 .plan-desc { font-size: 15px; color: var(--text-muted-2); margin: 0 0 28px; line-height: 1.5; min-height: 66px; }
-.plan-price { display: flex; align-items: baseline; gap: 7px; justify-content: center; }
-.plan-price .price { font-size: 48px; font-weight: 500; letter-spacing: -0.03em; }
-.price-period { font-size: 16px; color: var(--text-muted-2); }
-.plan-note { font-size: 14px; color: var(--text-muted-2); margin: 6px 0 28px; }
 .plan-features { list-style: none; display: grid; gap: 11px; font-size: 15px; color: var(--text-muted-3); line-height: 1.5; text-align: left; }
 .plan-features li::before { content: "✓ "; color: var(--accent-2); font-weight: 700; }
 
@@ -327,7 +295,54 @@ img, svg { display: block; max-width: 100%; }
 .contact-form textarea { resize: vertical; }
 .contact-form button { padding: 15px; font-size: 16px; }
 
+/* Wizard */
+.wizard-progress { display: flex; gap: 6px; margin-bottom: 10px; }
+.wizard-progress .segment { flex: 1; height: 4px; border-radius: 999px; background: var(--border-2); transition: background .3s; }
+.wizard-progress .segment.is-filled { background: var(--navy); }
+.wizard-step-count {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted-2);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 22px;
+}
+
+.wizard-step { display: none; }
+.wizard-step.is-active { display: grid; gap: 14px; animation: wizard-in .35s ease; }
+@keyframes wizard-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.wizard-question { font-size: 21px; font-weight: 500; color: var(--navy); margin: 0; letter-spacing: -0.01em; }
+.wizard-optional { font-size: 14px; font-weight: 400; color: var(--text-muted-2); }
+
+.option-cards { display: grid; gap: 10px; }
+.option-card { position: relative; }
+.option-card input[type="radio"] { position: absolute; inset: 0; opacity: 0; margin: 0; cursor: pointer; }
+.option-card span {
+  display: block;
+  padding: 16px 18px;
+  border: 1px solid var(--border-2);
+  border-radius: 12px;
+  background: var(--panel);
+  font-size: 16px;
+  color: var(--text-muted-3);
+  transition: border-color .2s, background .2s, color .2s;
+}
+.option-card input[type="radio"]:checked + span {
+  border-color: var(--navy);
+  background: var(--navy);
+  color: #FFFFFF;
+  font-weight: 600;
+}
+.option-card input[type="radio"]:focus-visible + span { outline: 2px solid var(--navy); outline-offset: 2px; }
+
+.wizard-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 4px; }
+.wizard-nav .btn { min-width: 130px; }
+
+.wizard-step.shake { animation: wizard-shake .3s; }
+@keyframes wizard-shake { 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }
+
 .form-status { min-height: 20px; margin-top: 12px; font-size: 15px; color: var(--navy-2); }
+.form-status.is-success { font-size: 18px; font-weight: 600; color: var(--navy); }
 
 .contact-links { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; font-size: 17px; color: var(--text-muted-3); margin-top: 32px; }
 .contact-links a { text-decoration: none; border-bottom: 1px solid var(--border-3); padding-bottom: 2px; transition: color .25s, border-color .25s; }

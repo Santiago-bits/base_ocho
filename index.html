@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=2">
+<link rel="stylesheet" href="styles.css?v=8">
 </head>
 <body>
 
@@ -24,7 +24,7 @@
     </a>
     <nav class="main-nav">
       <a href="/#hacemos">Qué hacemos</a>
-      <a href="/#planes">Cuánto sale</a>
+      <a href="/#planes">Planes</a>
       <a href="/#como">Cómo trabajamos</a>
       <a href="/#contacto" class="btn btn-primary btn-small">Escribinos</a>
     </nav>
@@ -42,7 +42,7 @@
       <p data-reveal class="hero-lead">Diseñamos el sitio, lo publicamos y después nos quedamos: cuando cambiás un precio, sumás un producto o querés una promo, nos escribís y lo hacemos. Todo entra en una cuota mensual.</p>
       <div data-reveal class="hero-ctas">
         <a href="#contacto" class="btn btn-primary btn-large">Contanos qué necesitás</a>
-        <a href="#planes" class="btn btn-ghost btn-large">o mirá los precios primero</a>
+        <a href="#planes" class="btn btn-ghost btn-large">o mirá los planes primero</a>
       </div>
     </div>
   </section>
@@ -103,21 +103,14 @@
   </section>
 
   <section id="planes" class="section">
-    <h2 data-reveal class="section-title">Cuánto sale</h2>
-    <p data-reveal class="section-lead">Precios en dólares, sin IVA. Hay un pago inicial de US$120 por armar el sitio, y después la cuota. Si pagás el año adelantado no cobramos el inicial y la cuota baja un 20%.</p>
-
-    <div data-reveal class="billing-toggle" role="group" aria-label="Forma de pago">
-      <button type="button" class="toggle-btn is-active" id="btnMensual">Mes a mes</button>
-      <button type="button" class="toggle-btn" id="btnAnual">Año adelantado</button>
-    </div>
+    <h2 data-reveal class="section-title">Nuestros planes</h2>
+    <p data-reveal class="section-lead">Tres formas de trabajar juntos, según cuánto necesite tu negocio hoy. Charlamos veinte minutos y te armamos una propuesta a medida, sin vueltas.</p>
 
     <div class="grid grid-3 pricing-grid">
       <div data-reveal class="plan-card">
         <h3>Arranque</h3>
         <p class="plan-desc">Para el que hoy manda un PDF por WhatsApp y necesita algo a dónde mandar a la gente.</p>
-        <div class="plan-price"><span class="price" data-monthly="US$19" data-annual="US$15">US$19</span><span class="price-period">por mes</span></div>
-        <div class="plan-note" data-monthly="más US$120 una vez, al empezar" data-annual="US$180 el año, sin pago inicial">más US$120 una vez, al empezar</div>
-        <a href="#contacto" class="btn btn-outline">Lo quiero</a>
+        <a href="#contacto" class="btn btn-outline">Pedir esta propuesta</a>
         <ul class="plan-features">
           <li>Una sola página, bien hecha</li>
           <li>Dominio .com y hosting incluidos</li>
@@ -130,9 +123,7 @@
       <div data-reveal class="plan-card plan-featured">
         <h3>Impulso</h3>
         <p class="plan-desc">Para un negocio que ya funciona y quiere que la página traiga clientes, no que solo exista.</p>
-        <div class="plan-price"><span class="price grad-text" data-monthly="US$39" data-annual="US$31">US$39</span><span class="price-period">por mes</span></div>
-        <div class="plan-note" data-monthly="más US$120 una vez, al empezar" data-annual="US$372 el año, sin pago inicial">más US$120 una vez, al empezar</div>
-        <a href="#contacto" class="btn btn-primary">Lo quiero</a>
+        <a href="#contacto" class="btn btn-primary">Pedir esta propuesta</a>
         <ul class="plan-features">
           <li>Hasta seis páginas, con blog si querés</li>
           <li>Los textos los escribimos nosotros</li>
@@ -146,9 +137,7 @@
       <div data-reveal class="plan-card">
         <h3>Comercio</h3>
         <p class="plan-desc">Para vender online sin pasarte las tardes peleando con el panel de la tienda.</p>
-        <div class="plan-price"><span class="price" data-monthly="US$69" data-annual="US$55">US$69</span><span class="price-period">por mes</span></div>
-        <div class="plan-note" data-monthly="más US$120 una vez, al empezar" data-annual="US$660 el año, sin pago inicial">más US$120 una vez, al empezar</div>
-        <a href="#contacto" class="btn btn-outline">Lo quiero</a>
+        <a href="#contacto" class="btn btn-outline">Pedir esta propuesta</a>
         <ul class="plan-features">
           <li>Todo lo de Impulso</li>
           <li>Tienda de hasta 200 productos</li>
@@ -193,16 +182,96 @@
     <div data-reveal class="contact-inner">
       <h2>Escribinos y te decimos qué haríamos</h2>
       <p>Contestamos nosotros, no un bot. Te mandamos una propuesta concreta con el plan que te conviene y el precio final. Si no somos lo que buscás, también te lo decimos.</p>
-      <form class="contact-form" id="contactForm">
-        <input type="text" name="nombre" placeholder="Cómo te llamás" required>
-        <input type="text" name="contacto" placeholder="Mail o WhatsApp" required>
-        <textarea name="mensaje" rows="4" placeholder="Contanos un poco qué hacés y qué necesitás" required></textarea>
-        <button type="submit" class="btn btn-primary">Mandar</button>
+      <form class="contact-form wizard" id="contactForm" novalidate>
+        <input type="hidden" name="access_key" value="8f75791f-07d0-4b7a-9c3c-5be227e70bc4">
+        <input type="hidden" name="subject" value="Nuevo mensaje desde el sitio de Base Ocho">
+        <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+
+        <div class="wizard-progress" aria-hidden="true">
+          <span class="segment is-filled"></span>
+          <span class="segment"></span>
+          <span class="segment"></span>
+          <span class="segment"></span>
+          <span class="segment"></span>
+        </div>
+        <p class="wizard-step-count">Paso <span id="wizardStepNum">1</span> de 5</p>
+
+        <div class="wizard-step is-active" data-step="1">
+          <h3 class="wizard-question">¿Qué necesitás?</h3>
+          <div class="option-cards">
+            <label class="option-card">
+              <input type="radio" name="necesita" value="Un sitio nuevo" required>
+              <span>Un sitio nuevo</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="necesita" value="Mantener o actualizar el que ya tengo">
+              <span>Mantener o actualizar el que ya tengo</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="necesita" value="Vender online">
+              <span>Vender online</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="necesita" value="No estoy seguro, quiero que me asesoren">
+              <span>No estoy seguro, quiero que me asesoren</span>
+            </label>
+          </div>
+          <div class="wizard-nav">
+            <span></span>
+            <button type="button" class="btn btn-primary wizard-next">Siguiente</button>
+          </div>
+        </div>
+
+        <div class="wizard-step" data-step="2">
+          <h3 class="wizard-question">¿Ya tenés un sitio web?</h3>
+          <div class="option-cards">
+            <label class="option-card">
+              <input type="radio" name="tiene_sitio" value="Sí" required>
+              <span>Sí</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="tiene_sitio" value="No">
+              <span>No</span>
+            </label>
+          </div>
+          <div class="wizard-nav">
+            <button type="button" class="btn btn-ghost wizard-back">Atrás</button>
+            <button type="button" class="btn btn-primary wizard-next">Siguiente</button>
+          </div>
+        </div>
+
+        <div class="wizard-step" data-step="3">
+          <h3 class="wizard-question">¿A qué se dedica tu negocio?</h3>
+          <input type="text" name="negocio" placeholder="Ej: panadería, estudio contable, gimnasio…" required>
+          <div class="wizard-nav">
+            <button type="button" class="btn btn-ghost wizard-back">Atrás</button>
+            <button type="button" class="btn btn-primary wizard-next">Siguiente</button>
+          </div>
+        </div>
+
+        <div class="wizard-step" data-step="4">
+          <h3 class="wizard-question">Contanos algo más <span class="wizard-optional">(opcional)</span></h3>
+          <textarea name="mensaje" rows="4" placeholder="Cualquier detalle que te sirva compartir"></textarea>
+          <div class="wizard-nav">
+            <button type="button" class="btn btn-ghost wizard-back">Atrás</button>
+            <button type="button" class="btn btn-primary wizard-next">Siguiente</button>
+          </div>
+        </div>
+
+        <div class="wizard-step" data-step="5">
+          <h3 class="wizard-question">Por último, ¿cómo te contactamos?</h3>
+          <input type="text" name="nombre" placeholder="Cómo te llamás" required>
+          <input type="text" name="contacto" placeholder="Mail o WhatsApp" required>
+          <div class="wizard-nav">
+            <button type="button" class="btn btn-ghost wizard-back">Atrás</button>
+            <button type="submit" class="btn btn-primary">Mandar</button>
+          </div>
+        </div>
       </form>
       <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
       <div class="contact-links">
         <a href="mailto:holabaseocho@gmail.com">holabaseocho@gmail.com</a>
-        <a href="tel:+5493456268638">3456 26-8638</a>
+        <a href="tel:+5493454096123">345 409-6123</a>
       </div>
       <p class="contact-hours">Lunes a viernes, 9 a 18.</p>
     </div>
@@ -237,16 +306,16 @@
       </div>
       <div class="footer-col">
         <div class="footer-heading">Planes</div>
-        <a href="/#planes">Arranque · US$19</a>
-        <a href="/#planes">Impulso · US$39</a>
-        <a href="/#planes">Comercio · US$69</a>
+        <a href="/#planes">Arranque</a>
+        <a href="/#planes">Impulso</a>
+        <a href="/#planes">Comercio</a>
         <a href="/#como">Cómo trabajamos</a>
         <a href="/#contacto">Pedir presupuesto</a>
       </div>
       <div class="footer-col">
         <div class="footer-heading">Contacto</div>
         <a href="mailto:holabaseocho@gmail.com">holabaseocho@gmail.com</a>
-        <a href="tel:+5493456268638">3456 26-8638</a>
+        <a href="tel:+5493454096123">345 409-6123</a>
         <span class="muted">Lunes a viernes, 9 a 18</span>
       </div>
     </div>
@@ -260,6 +329,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=1"></script>
+  <script src="script.js?v=4"></script>
 </body>
 </html>
