@@ -259,9 +259,12 @@ img, svg { display: block; max-width: 100%; }
 }
 .plan-card:hover { transform: translateY(-6px); border-color: var(--navy); }
 .plan-card h3 { font-size: 19px; font-weight: 600; margin: 0 0 6px; color: var(--navy); }
+.plan-price { font-size: 26px; font-weight: 700; color: var(--navy); margin: 0 0 10px; }
+.plan-price span { display: block; font-size: 12px; font-weight: 500; color: var(--text-muted-1); text-transform: uppercase; letter-spacing: .04em; margin-top: 2px; }
 .plan-desc { font-size: 15px; color: var(--text-muted-2); margin: 0 0 28px; line-height: 1.5; min-height: 66px; }
 .plan-features { list-style: none; display: grid; gap: 11px; font-size: 15px; color: var(--text-muted-3); line-height: 1.5; text-align: left; }
 .plan-features li::before { content: "✓ "; color: var(--accent-2); font-weight: 700; }
+.plan-maintenance { font-size: 13px; color: var(--text-muted-1); margin: 18px 0 0; line-height: 1.5; }
 
 .plan-featured {
   position: relative;
@@ -298,6 +301,38 @@ img, svg { display: block; max-width: 100%; }
 .step { text-align: center; }
 .step h3 { font-size: 21px; font-weight: 500; margin: 0 0 10px; letter-spacing: -0.01em; }
 .step p { font-size: 16px; line-height: 1.6; color: var(--text-muted-1); }
+
+/* FAQ */
+.faq-list { display: grid; gap: 12px; max-width: 780px; margin: 0 auto; }
+.faq-item {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 0 22px;
+}
+.faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 18px 0;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: "+";
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--text-muted-2);
+  transition: transform .25s;
+  flex-shrink: 0;
+}
+.faq-item[open] summary::after { transform: rotate(45deg); }
+.faq-item p { font-size: 15px; line-height: 1.6; color: var(--text-muted-1); margin: 0 0 20px; text-wrap: pretty; }
 
 /* Contact */
 .contact-section { position: relative; overflow: hidden; }
@@ -485,6 +520,7 @@ img, svg { display: block; max-width: 100%; }
   transition: border-color .25s, color .25s, transform .25s;
 }
 .social-links a:hover { border-color: var(--navy); color: var(--navy); transform: translateY(-2px); }
+.social-links svg { width: 18px; height: 18px; }
 
 .footer-heading { font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted-4); font-weight: 600; margin-bottom: 18px; }
 .footer-col { display: flex; flex-direction: column; gap: 11px; font-size: 15px; }
@@ -553,4 +589,29 @@ img, svg { display: block; max-width: 100%; }
   .grid-3, .grid-4 { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; padding: 48px 20px 0; }
   .footer-bottom { padding: 22px 20px; }
+}
+
+/* Floating WhatsApp button */
+.whatsapp-float {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 40;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25D366;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 26px rgba(15,36,64,0.28);
+  transition: transform .25s, box-shadow .25s;
+}
+.whatsapp-float:hover { transform: translateY(-3px) scale(1.06); box-shadow: 0 14px 32px rgba(15,36,64,0.34); color: #FFFFFF; }
+.whatsapp-float svg { width: 28px; height: 28px; }
+
+@media (max-width: 640px) {
+  .whatsapp-float { right: 14px; bottom: 14px; width: 52px; height: 52px; }
+  .whatsapp-float svg { width: 26px; height: 26px; }
 }

@@ -110,22 +110,33 @@
     if (stepNumEl) stepNumEl.textContent = current + 1;
   }
 
+  function advanceFrom(step) {
+    if (!isStepValid(step)) {
+      step.classList.remove('shake');
+      void step.offsetWidth; // restart animation
+      step.classList.add('shake');
+      return;
+    }
+    if (current < steps.length - 1) { current++; render(); }
+  }
+
   form.querySelectorAll('.wizard-next').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var step = steps[current];
-      if (!isStepValid(step)) {
-        step.classList.remove('shake');
-        void step.offsetWidth; // restart animation
-        step.classList.add('shake');
-        return;
-      }
-      if (current < steps.length - 1) { current++; render(); }
-    });
+    btn.addEventListener('click', function () { advanceFrom(steps[current]); });
   });
 
   form.querySelectorAll('.wizard-back').forEach(function (btn) {
     btn.addEventListener('click', function () {
       if (current > 0) { current--; render(); }
+    });
+  });
+
+  // Pasos que se responden eligiendo una opción: avanzan solos apenas eligen, sin botón "Siguiente".
+  steps.forEach(function (step) {
+    var radios = Array.prototype.slice.call(step.querySelectorAll('input[type="radio"]'));
+    radios.forEach(function (radio) {
+      radio.addEventListener('change', function () {
+        setTimeout(function () { advanceFrom(step); }, 350);
+      });
     });
   });
 
@@ -159,9 +170,8 @@
   }
 
   function showCooldown(msLeft) {
-    var minutesLeft = Math.ceil(msLeft / 60000);
     form.hidden = true;
-    status.textContent = '¡Gracias! Te vamos a contestar a la brevedad. Vas a poder mandar otro mensaje en ' + minutesLeft + ' minuto' + (minutesLeft === 1 ? '' : 's') + '.';
+    status.textContent = '¡Gracias! Te vamos a contestar a la brevedad.';
     status.classList.add('is-success');
     setTimeout(function () {
       form.hidden = false;
