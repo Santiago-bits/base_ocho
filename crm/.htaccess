@@ -1,0 +1,3 @@
+# Protección: esta carpeta NO debe quedar accesible desde la web.
+# Solo se publica crm/public. Si se sube entera a public_html, esto bloquea .env y el código.
+Require all denied
