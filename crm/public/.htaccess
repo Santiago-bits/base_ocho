@@ -5,6 +5,9 @@
 
     RewriteEngine On
 
+    # La web pública define "DirectoryIndex index.html" y esta carpeta lo heredaría.
+    DirectoryIndex index.php
+
     # Forzar HTTPS (este .htaccess reemplaza al de la raíz dentro de /crm).
     RewriteCond %{HTTPS} off
     RewriteCond %{HTTP:X-Forwarded-Proto} !https
