@@ -29,21 +29,26 @@ Hace falta acceso SSH (se activa en hPanel > Avanzado > Acceso SSH).
 
 1. En hPanel, elegir **PHP 8.3 o superior** para el dominio.
 2. En hPanel > Bases de datos MySQL, crear una base y un usuario.
-3. Subir el contenido de `crm/` a `~/domains/baseocho.com/crm_app`, **sin** `vendor/`, `.env` ni `database/database.sqlite`.
-4. Por SSH:
+3. Poner el contenido de `crm/` en `~/crm_app`, **sin** `vendor/`, `.env` ni `database/database.sqlite`.
+   No usar `domains/baseocho.com`: Hostinger marca esa carpeta con `DO_NOT_UPLOAD_HERE`.
+4. Por SSH (`--no-scripts` hace falta porque Hostinger desactiva `proc_open`):
 
 ```bash
-cd ~/domains/baseocho.com/crm_app
-composer install --no-dev --optimize-autoloader
+cd ~/crm_app
+composer install --no-dev --optimize-autoloader --no-scripts
+php artisan package:discover
 cp .env.hostinger.example .env
-nano .env                      # completar DB_DATABASE, DB_USERNAME y DB_PASSWORD
+chmod 600 .env
+nano .env                      # completar DB_DATABASE, DB_USERNAME y DB_PASSWORD (entre comillas simples)
 php artisan key:generate
-php artisan migrate --force
+php artisan migrate --force    # o importar database/crm_baseocho.sql en phpMyAdmin
 php artisan config:cache && php artisan route:cache && php artisan view:cache
-ln -s ~/domains/baseocho.com/crm_app/public ~/domains/baseocho.com/public_html/crm
+ln -s ~/crm_app/public ~/domains/baseocho.com/public_html/crm
 php artisan crm:usuario leo@ejemplo.com "Leo"
 php artisan crm:usuario santiago@ejemplo.com "Santiago"
 ```
+
+Las credenciales van solo en el `.env` del servidor. Nunca en el código ni en un commit.
 
 5. Abrir https://baseocho.com/crm y entrar.
 
@@ -54,14 +59,16 @@ Controles después de subirlo:
 - https://baseocho.com/crm/.env **no** muestra nada.
 
 **Si el enlace simbólico no funciona:** borrar `public_html/crm`, copiar ahí el contenido de `crm_app/public`
-y en `public_html/crm/index.php` cambiar las tres rutas `__DIR__.'/../...'` por `__DIR__.'/../../crm_app/...'`.
+y en `public_html/crm/index.php` cambiar las rutas `__DIR__.'/../...'` para que apunten a `~/crm_app`.
 
 ### Actualizar una versión
 
 Subir los archivos cambiados y, por SSH:
 
 ```bash
-composer install --no-dev --optimize-autoloader
+cd ~/crm_app
+composer install --no-dev --optimize-autoloader --no-scripts
+php artisan package:discover
 php artisan migrate --force
 php artisan config:cache && php artisan route:cache && php artisan view:cache
 ```
